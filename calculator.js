@@ -15,7 +15,7 @@ function operate(){
     document.getElementById("result").innerHTML="";
     let test = document.createElement("div");
     test.style.backgroundColor = 'lightgrey';
-    test.style.width = '100px';
+    test.style.width = '220px';
     test.style.height = '20px'; 
     test.textContent = a + b + c; 
     if (equals){
@@ -50,6 +50,7 @@ function makeNumbers(rows, cols){
     for (num=0; num<(rows*cols); num++ ){ //Number buttons
         let cell = document.createElement("button"); //creates new div element for each cell (numbers)
         cell.textContent = numbers[num];
+        if (cell.textContent=='C'){cell.style.backgroundColor = "red";}
         i++; 
         cell.addEventListener('click', () => {
                 if (cell.textContent=='C'){a='';b='';c='';}
@@ -73,13 +74,14 @@ function makeNumbers(rows, cols){
     };
     
     let j = ['+','-','*', '/','='];
-    containerOperator.style.gridTemplateRows = '25px 25px 25px 25px 50px'; // For each row, set to row width based on .grid class width 
+    containerOperator.style.gridTemplateRows = '30px 30px 30px 30px 80px'; // For each row, set to row width based on .grid class width 
     containerOperator.style.gridTemplateColumns = `65px`;  // 150 
     
     // containerOperator.style.fontSize = 'large';
     for (num=0; num<j.length; num++){
         let cell = document.createElement("button"); //creates new div element for each cell 
         cell.textContent = j[num];
+        cell.style.backgroundColor = "lightblue";
         cell.addEventListener('click', () => {
             if (cell.textContent!='='){
                 b=cell.textContent;
